@@ -16,7 +16,6 @@ public class BibliotecaService implements IBibliotecaService {
     public void prestarLibro(String idUsuario, String idLibro) {
         Prestamo prestamo = new Prestamo(idUsuario, idLibro);
         baseDatos.getColaPrestamos().add(prestamo);
-        baseDatos.notificarCambios();
     }
 
     public Prestamo procesarPrestamo() {
@@ -29,7 +28,6 @@ public class BibliotecaService implements IBibliotecaService {
         baseDatos.getListaDevoluciones().add(devolucion);
         baseDatos.getPilaDevoluciones().push(devolucion);
         baseDatos.getListaLibros().reducirDisponibles(prestamo.getLibroID());
-        baseDatos.notificarCambios();
 
         return prestamo;
     }
@@ -45,7 +43,6 @@ public class BibliotecaService implements IBibliotecaService {
 
         baseDatos.getListaLibros().aumentarDisponibles(devolucion.getLibroID());
         baseDatos.getListaDevoluciones().remove(devolucion);
-        baseDatos.notificarCambios();
 
         return devolucion;
     }

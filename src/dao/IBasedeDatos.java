@@ -19,7 +19,4 @@ public interface IBasedeDatos {
     Queue<Prestamo> getColaPrestamos();
     List<Devolucion> getListaDevoluciones();
     Stack<Devolucion> getPilaDevoluciones();
-    void agregarObserver(DataObserver observer);
-    void removerObserver(DataObserver observer);
-    void notificarCambios();
 }
