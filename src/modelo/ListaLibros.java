@@ -17,7 +17,6 @@ public class ListaLibros {
             }
             actual.siguiente = nuevo;
         }
-        BaseDatosMemoria.getInstance().notificarCambios();
     }
 
     public java.util.List<Libros> obtenerTodos() {
@@ -74,7 +73,6 @@ public class ListaLibros {
 
         if (nodo != null) {
             nodo.libro = datosNuevos;
-            BaseDatosMemoria.getInstance().notificarCambios();
             return true;
         }   
         return false;
@@ -87,7 +85,6 @@ public class ListaLibros {
 
     if (cabeza.libro.getLibroID().equals(id)) {
         cabeza = cabeza.siguiente;
-        BaseDatosMemoria.getInstance().notificarCambios();
         return true;
     }
 
@@ -97,7 +94,6 @@ public class ListaLibros {
     while (actual != null) {
         if (actual.libro.getLibroID().equals(id)) {
             anterior.siguiente = actual.siguiente;
-            BaseDatosMemoria.getInstance().notificarCambios();
             return true;
         }
         anterior = actual;

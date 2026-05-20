@@ -17,7 +17,6 @@ public class ListaUsuarios {
             }
             actual.siguiente = nuevo;
         }
-        BaseDatosMemoria.getInstance().notificarCambios();
     }
     
     public NodoUsuarios obtenerNodo(int index) {
@@ -58,7 +57,6 @@ public Usuarios get(int index) {
                 actual.usuario.setApellidoP(nuevo.getApellidoP());
                 actual.usuario.setApellidoM(nuevo.getApellidoM());
                 actual.usuario.setTelefono(nuevo.getTelefono());
-                BaseDatosMemoria.getInstance().notificarCambios();
                 return true;
             }
             actual = actual.siguiente;
@@ -127,7 +125,6 @@ public Usuarios get(int index) {
 
     if (cabeza.usuario.getCodigo().equalsIgnoreCase(codigo)) {
         cabeza = cabeza.siguiente;
-        BaseDatosMemoria.getInstance().notificarCambios();
         return true;
     }
 
@@ -137,7 +134,6 @@ public Usuarios get(int index) {
     while (actual != null) {
         if (actual.usuario.getCodigo().equalsIgnoreCase(codigo)) {
             anterior.siguiente = actual.siguiente;
-            BaseDatosMemoria.getInstance().notificarCambios();
             return true;
         }
         anterior = actual;

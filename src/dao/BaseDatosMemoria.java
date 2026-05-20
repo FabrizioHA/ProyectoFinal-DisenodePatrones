@@ -1,6 +1,5 @@
 package dao;
 
-import servicio.DataObserver;
 import modelo.ListaLibros;
 import modelo.ListaUsuarios;
 import modelo.Prestamo;
@@ -19,7 +18,6 @@ public class BaseDatosMemoria implements IBasedeDatos {
     private final Queue<Prestamo> colaPrestamos;
     private final List<Devolucion> listaDevoluciones;
     private final Stack<Devolucion> pilaDevoluciones;
-    private final List<DataObserver> observers;
 
     private BaseDatosMemoria() {
         this.listaLibros = new ListaLibros();
@@ -27,7 +25,6 @@ public class BaseDatosMemoria implements IBasedeDatos {
         this.colaPrestamos = new LinkedList<>();
         this.listaDevoluciones = new ArrayList<>();
         this.pilaDevoluciones = new Stack<>();
-        this.observers = new ArrayList<>();
     }
 
     public static BaseDatosMemoria getInstance() {
@@ -59,21 +56,5 @@ public class BaseDatosMemoria implements IBasedeDatos {
 
     public Stack<Devolucion> getPilaDevoluciones() {
         return pilaDevoluciones;
-    }
-
-    public void agregarObserver(DataObserver observer) {
-        if (observer != null && !observers.contains(observer)) {
-            observers.add(observer);
-        }
-    }
-
-    public void removerObserver(DataObserver observer) {
-        observers.remove(observer);
-    }
-
-    public void notificarCambios() {
-        for (DataObserver observer : observers) {
-            observer.onDataChanged();
-        }
     }
 }

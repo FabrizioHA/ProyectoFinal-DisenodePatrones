@@ -1,19 +1,17 @@
 package Libreria_Read;
 
 import dao.BaseDatosMemoria;
-import servicio.DataObserver;
 import modelo.Libros;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class frmLibros extends javax.swing.JPanel implements DataObserver {
+public class frmLibros extends javax.swing.JPanel{
     
     
     public frmLibros() {
         initComponents(); 
-        BaseDatosMemoria.getInstance().agregarObserver(this);
         actualizarTabla();
     }
     
@@ -367,7 +365,6 @@ public class frmLibros extends javax.swing.JPanel implements DataObserver {
     });
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    @Override
     public void onDataChanged() {
         actualizarTabla();
     }

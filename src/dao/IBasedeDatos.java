@@ -4,7 +4,6 @@
  */
 package dao;
 
-import servicio.DataObserver;
 import modelo.ListaLibros;
 import modelo.ListaUsuarios;
 import modelo.Prestamo;

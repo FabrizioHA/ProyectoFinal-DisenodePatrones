@@ -1,18 +1,16 @@
 package Libreria_Read;
 
 import dao.BaseDatosMemoria;
-import servicio.DataObserver;
 import modelo.Usuarios;
 import java.awt.BorderLayout;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class frmUsuarios extends javax.swing.JPanel implements DataObserver {
+public class frmUsuarios extends javax.swing.JPanel {
 
     public frmUsuarios() {
         initComponents();
-        BaseDatosMemoria.getInstance().agregarObserver(this);
         actualizarTabla();
     }
     
@@ -298,7 +296,6 @@ public class frmUsuarios extends javax.swing.JPanel implements DataObserver {
     tblUsuarios.scrollRectToVisible(tblUsuarios.getCellRect(fila, 0, true));
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    @Override
     public void onDataChanged() {
         actualizarTabla();
     }
