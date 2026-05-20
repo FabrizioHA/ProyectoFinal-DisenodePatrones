@@ -365,11 +365,6 @@ public class frmLibros extends javax.swing.JPanel{
     });
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    public void onDataChanged() {
-        actualizarTabla();
-    }
-
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnBuscar;
